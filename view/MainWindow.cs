@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Lab4
+namespace Lab4.view
 {
     public partial class MainWindow : Form
     {

@@ -1,5 +1,5 @@
 ﻿
-namespace Lab4
+namespace Lab4.view
 {
     partial class MainWindow
     {
