@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Lab4
+namespace Lab4.model
 {
     class SearchInString
     {
