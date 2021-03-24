@@ -4,31 +4,25 @@ using System.Threading.Tasks;
 
 namespace Lab4.model
 {
-    class SearchInString
+    class StringSearch
     {
         private int insertCost = 1;
         private int deleteCost = 1;
         private int replaceCost = 1;
+        private int mistakes = 3;
 
-        private String source;
-        private String find;
-        private int mistakes;
+        private readonly String source;
+        private readonly String find;
+        
 
-        private List<int> foundPos;
+        private static volatile List<int> foundPos;
 
-        public SearchInString(String source, String find, int mistakes)
+        public StringSearch(String source, String find, int startIndex)
         {
             this.source = source;
             this.find = find;
-            this.mistakes = mistakes;
             foundPos = new List<int>();
             search();
-            //Task[] tasks = new Task[source.Length / 1000];
-            //for (int i = 0; i < source.Length; i += 1000)
-            //{
-            //    tasks[i] = new Task(() => search(source.Substring(i, 1000)));
-            //    tasks[i].Start();
-            //}
         }
 
         private void search()
@@ -39,7 +33,8 @@ namespace Lab4.model
                 String s1 = source.Substring(sourceIterator, find.Length);
                 String s2 = find;
                 if (mistakes >= levensteinInstruction(s1, s2, insertCost, deleteCost, replaceCost))
-                    foundPos.Add(sourceIterator);
+                    lock (foundPos)
+                        foundPos.Add(sourceIterator);
             }
         }
 
@@ -69,24 +64,9 @@ namespace Lab4.model
             return Math.Min(Math.Min(i1, i2), i3);
         }
 
-        public List<int> getFoundPos()
+        public static List<int> getFoundPos()
         {
             return foundPos;
-        }
-
-        public String getSourceString()
-        {
-            return source;
-        }
-
-        public String getFindString()
-        {
-            return find;
-        }
-
-        public int getMistakes()
-        {
-            return mistakes;
         }
     }
 }
