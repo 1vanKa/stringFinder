@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Lab4.controller
+namespace Lab4.view
 {
     class SearchClickTask
     {
