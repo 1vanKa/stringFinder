@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lab4.controller;
+using System;
 using System.Windows.Forms;
 
 namespace Lab4.view
@@ -10,15 +11,19 @@ namespace Lab4.view
             InitializeComponent();
         }
 
-        private void searchButton_Click(object sender, EventArgs e)
+        private void SearchButton_Click(object sender, EventArgs e)
         {
-            throw new System.NotImplementedException();
+            SearchClickTask t = new SearchClickTask(richTextBox, searchTextBox);
+            t.Start();
         }
 
-        private void loadToolStripMenuItem_Click(object sender, EventArgs e)
+        private void LoadToolStripMenuItem_Click(object sender, EventArgs e)
         {
             openFileDialog.ShowDialog(this);
             String path = openFileDialog.FileName;
+            if (String.IsNullOrEmpty(path)) 
+                return;
+
             throw new System.NotImplementedException();
         }
     }
