@@ -1,5 +1,6 @@
-﻿using Lab4.controller;
-using System;
+﻿using System;
+using System.IO;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Lab4.view
@@ -17,14 +18,26 @@ namespace Lab4.view
             t.Start();
         }
 
-        private void LoadToolStripMenuItem_Click(object sender, EventArgs e)
+        private void loadToolStripMenuItem_Click(object sender, EventArgs e)
         {
             openFileDialog.ShowDialog(this);
             String path = openFileDialog.FileName;
-            if (String.IsNullOrEmpty(path)) 
+            if (String.IsNullOrEmpty(path))
+            {
                 return;
+            }
 
-            throw new System.NotImplementedException();
+            Task task = new Task(() =>
+            {
+                String[] sourceLines = File.ReadAllLines(path);
+                String source = "";
+                foreach (var s in sourceLines)
+                {
+                    source += s;
+                }
+                richTextBox.Invoke(new Action(() => richTextBox.Text = source));
+            });
+            task.Start();
         }
     }
 }

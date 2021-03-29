@@ -29,7 +29,6 @@ namespace Lab4.view
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.searchButton = new System.Windows.Forms.Button();
             this.richTextBox = new System.Windows.Forms.RichTextBox();
@@ -42,37 +41,33 @@ namespace Lab4.view
             // 
             // searchTextBox
             // 
-            this.searchTextBox.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.searchTextBox.Location = new System.Drawing.Point(14, 35);
-            this.searchTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.searchTextBox.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.searchTextBox.Location = new System.Drawing.Point(12, 30);
             this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.Size = new System.Drawing.Size(194, 26);
+            this.searchTextBox.Size = new System.Drawing.Size(167, 26);
             this.searchTextBox.TabIndex = 0;
             this.searchTextBox.Tag = "";
-            this.searchTextBox.Text = "using Lab4.model;";
             // 
             // searchButton
             // 
-            this.searchButton.Location = new System.Drawing.Point(216, 35);
-            this.searchButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.searchButton.Location = new System.Drawing.Point(185, 30);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(88, 33);
+            this.searchButton.Size = new System.Drawing.Size(75, 29);
             this.searchButton.TabIndex = 1;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = true;
             this.searchButton.Click += new System.EventHandler(this.SearchButton_Click);
             // 
-            // richTextBox1
+            // richTextBox
             // 
             this.richTextBox.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.richTextBox.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.richTextBox.Location = new System.Drawing.Point(14, 89);
-            this.richTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.richTextBox.Name = "richTextBox1";
+            this.richTextBox.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.richTextBox.Location = new System.Drawing.Point(12, 77);
+            this.richTextBox.Name = "richTextBox";
             this.richTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.richTextBox.Size = new System.Drawing.Size(772, 347);
+            this.richTextBox.Size = new System.Drawing.Size(662, 301);
             this.richTextBox.TabIndex = 2;
-            this.richTextBox.Text = resources.GetString("richTextBox1.Text");
+            this.richTextBox.Text = "";
             // 
             // openFileDialog
             // 
@@ -80,19 +75,16 @@ namespace Lab4.view
             // 
             // menuStrip
             // 
-            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {this.fileToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
-            this.menuStrip.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip.Size = new System.Drawing.Size(686, 24);
             this.menuStrip.TabIndex = 3;
             this.menuStrip.Text = "menuStrip";
             // 
             // fileToolStripMenuItem
             // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.loadToolStripMenuItem});
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {this.loadToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
@@ -100,29 +92,28 @@ namespace Lab4.view
             // loadToolStripMenuItem
             // 
             this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
-            this.loadToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.loadToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.loadToolStripMenuItem.Text = "Load";
+            this.loadToolStripMenuItem.Click += new System.EventHandler(this.loadToolStripMenuItem_Click);
             // 
             // MainWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(686, 390);
             this.Controls.Add(this.richTextBox);
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.searchTextBox);
             this.Controls.Add(this.menuStrip);
             this.Location = new System.Drawing.Point(15, 15);
             this.MainMenuStrip = this.menuStrip;
-            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "MainWindow";
             this.RightToLeftLayout = true;
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
